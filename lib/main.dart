@@ -61,10 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
       } else {
         textReplacer = textReplacer;
       }
-
-
     });
-        _dialogBuilder(context);
+    _dialogBuilder(context);
   }
 
   Future<void> _dialogBuilder(BuildContext context) {
@@ -114,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   hintText: 'Insert your number here',
                 ),
                 controller: controller,
-                keyboardType:  TextInputType.number,
+                keyboardType: TextInputType.number,
                 onChanged: (String value) {
                   setState(() {
                     numberToBeChecked = double.tryParse(value)!;
