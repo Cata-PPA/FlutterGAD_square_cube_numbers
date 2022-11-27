@@ -40,20 +40,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final String textForSquare = 'Your number is a square';
   final String textForCube = 'Your number is a cube';
-  String textReplacer = 'Your number is not a square nor a cube';
+  String textReplacer = 'x';
 
   void checkSqrtCube() {
     setState(() {
       numberToSquare = pow(numberToBeChecked, 1 / 2).ceilToDouble();
       numberToPower2 = pow(numberToSquare, 2);
       numberToCube = pow(numberToBeChecked, 1 / 3).ceilToDouble();
-      numberToPower3 = numberToCube * numberToCube * numberToCube;
+      numberToPower3 = pow(numberToCube, 3);
 
-      if (numberToPower2 == numberToBeChecked) {
+      if ((numberToPower2 == numberToBeChecked) && (numberToPower3 == numberToBeChecked)) {
+        textReplacer = 'Your number is both a square and a cube';
+      } else if (numberToPower2 == numberToBeChecked) {
         textReplacer = textForSquare;
-      }
-      if (numberToPower3 == numberToBeChecked) {
-        textReplacer = '$textReplacer\n$textForCube';
+      } else if (numberToPower3 == numberToBeChecked) {
+        textReplacer = textForCube;
+      } else {
+        textReplacer = 'Not a square nor a cube';
       }
     });
     _dialogBuilder(context);
