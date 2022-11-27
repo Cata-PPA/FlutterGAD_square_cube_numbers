@@ -37,11 +37,10 @@ class _MyHomePageState extends State<MyHomePage> {
   num numberToPower3 = 0;
   num numberToSquare = 0;
   num numberToCube = 0;
-  TextEditingController controller = TextEditingController();
+
   final String textForSquare = 'Your number is a square';
   final String textForCube = 'Your number is a cube';
-  final String textForSqCube = 'Your number is a square and a cube';
-  String textReplacer = 'x';
+  String textReplacer = 'Your number is not a square nor a cube';
 
   void checkSqrtCube() {
     setState(() {
@@ -52,14 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
       if (numberToPower2 == numberToBeChecked) {
         textReplacer = textForSquare;
-      } else {
-        textReplacer = '';
       }
-
       if (numberToPower3 == numberToBeChecked) {
         textReplacer = '$textReplacer\n$textForCube';
-      } else {
-        textReplacer = textReplacer;
       }
     });
     _dialogBuilder(context);
@@ -111,7 +105,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: const InputDecoration(
                   hintText: 'Insert your number here',
                 ),
-                controller: controller,
                 keyboardType: TextInputType.number,
                 onChanged: (String value) {
                   setState(() {
