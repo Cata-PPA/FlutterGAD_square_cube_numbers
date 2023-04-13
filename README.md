@@ -5,7 +5,7 @@ Project done in Flutter, learning basics of Dart programming and making use of A
 
 
 
-Github workflow quality check for good code practice (details can be seen in Actions tab)
+Github Actions using Gradle for quality check for good code practice (details can be seen in Actions tab)
 
 
 ## Tech stack 
